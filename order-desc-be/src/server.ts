@@ -50,9 +50,13 @@ app.get('/orders', async (req, res) => {
         const response = await axios.get(`${BASE_URL}/orders`, {
           headers: headers,
           params: args
-				});
+        });
+      
+        if (response.data.orders.length === 0) {
+          console.log('No new orders')
+        }
 			
-				response.data.orders.forEach((el: any) => {
+        response.data.orders.forEach((el: any) => {
 					if (el.shipping.adress1) {
             console.log('Order ID: ' + el.id + ', shipping adress: ' + el.shipping.adress1);
           } else {

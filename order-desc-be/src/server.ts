@@ -4,6 +4,8 @@ import axios from 'axios';
 
 const app = express();
 
+const PORT = 3000;
+
 const BASE_URL = 'https://app.orderdesk.me/api/v2';
 
 const headers = {
@@ -41,8 +43,8 @@ app.get('/orders', async (req, res) => {
 
         let startTime = `${dateOfDate} ${timeISODate}:${timeOfDate.split(':')[1]}:${timeOfDate.split(':')[2]}`;
 
-				const args = {
-					'search_start_date': startTime,
+	      const args = {
+		      'search_start_date': startTime,
         };
 
         const response = await axios.get(`${BASE_URL}/orders`, {
@@ -74,6 +76,6 @@ app.get('/orders', async (req, res) => {
     }
 })
 
-app.listen(3000, () => {
+app.listen(PORT || process.env.PORT, () => {
   console.log('start server');
 })

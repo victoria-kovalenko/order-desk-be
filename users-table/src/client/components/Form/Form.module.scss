@@ -1,0 +1,111 @@
+@import '../../assets/style_utils/variables';
+@import '../../assets/style_utils/extends';
+
+.form {
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: center;
+
+  &__textFieldList {
+    margin-bottom: 52px;
+  }
+
+  &__textFieldItem:not(:last-child) {
+    margin-bottom: 50px;
+  }
+  
+  &__textInput {
+    &:focus {
+      border-color: $grayColor ;
+    }
+  }
+
+  &__positionField {
+    margin-bottom: 47px;
+    text-align: left;
+  }
+
+  &__imageField {
+    margin-bottom: 50px;
+  }
+  &__subtitle {
+    margin-bottom: 9px;
+  }
+}
+
+.uploadField {
+  display: flex;
+  align-items: stretch;
+
+  height: 54px;
+  
+  position: relative;
+
+  &__input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap; 
+    
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding: 14px 15px;
+
+    border: 1px solid $blackColor;
+    border-radius: 4px 0px 0px 4px;
+
+    cursor: pointer;
+
+    transition: color $transitionSettings,
+      border-color $transitionSettings;
+
+    &.error {
+      border-color: $errorColor;
+    }
+
+    &:hover {
+      color: $secondaryColor;
+      border-color: $secondaryColor;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    flex-grow: 1; 
+
+    border: 1px solid $grayColor;
+    border-left: none;
+    background-color: transparent;
+
+    outline: none;
+    overflow: hidden;
+
+    &.error {
+      border-color: $errorColor;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -25px;
+    left: 16px;
+
+    color: $errorColor;
+    font-size: 12px;
+  }
+}
+.successImage {
+  display: block;
+  margin: 0 auto;
+}
